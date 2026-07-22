@@ -129,8 +129,8 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/atretador/story_teller.git
-cd story_teller
+git clone https://github.com/atretador/Hallucinated-Talles.git
+cd Hallucinated-Talles
 
 # Install dependencies
 npm install
