@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="page-title">Hallucinated Talles — A Free Writing Studio for Long-Form Fiction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600&family=Crimson+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ================================================================
+       Navigation
+       ================================================================ -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="nav-logo-icon">&#9733;</span>
+        <span data-i18n="nav-logo">Hallucinated Talles</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features" data-i18n="nav-features">Features</a>
+        <a href="#ai-writing" data-i18n="nav-ai-tools">AI Tools</a>
+        <a href="#planner" data-i18n="nav-planner">Planner</a>
+        <span class="nav-lang-wrap">
+          <svg class="nav-lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <select class="nav-lang-select" id="lang-select" aria-label="Language">
+            <option value="en">English</option>
+            <option value="es">Espa&ntilde;ol</option>
+            <option value="pt-BR">Portugu&ecirc;s (BR)</option>
+            <option value="zh-CN">&#31616;&#20307;&#20013;&#25991;</option>
+          </select>
+        </span>
+        <a href="https://github.com/atretador/story_teller/releases" class="nav-cta-btn" target="_blank" rel="noopener" data-i18n="nav-download">Download Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================================================================
+       Hero Section
+       ================================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-grain"></div>
+      <div class="hero-glow"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow anim-fade-up" data-delay="0" data-i18n="hero-eyebrow">Free &amp; Open Source</p>
+      <h1 class="hero-title anim-fade-up" data-delay="1" data-i18n="hero-title">
+        Write Longer.<br>
+        <em>Write Deeper.</em>
+      </h1>
+      <p class="hero-subtitle anim-fade-up" data-delay="2" data-i18n="hero-subtitle">
+        A writing studio built for novels, screenplays, and world-building projects.
+        Organize chapters, track characters, map timelines — with AI that understands your story.
+      </p>
+      <div class="hero-actions anim-fade-up" data-delay="3">
+        <a href="https://github.com/atretador/story_teller/releases" class="btn btn-primary" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          <span data-i18n="hero-download-btn">Download for Free</span>
+        </a>
+        <a href="https://github.com/atretador/story_teller" class="btn btn-ghost" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          <span data-i18n="hero-github-btn">View on GitHub</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         MOCK 1: Hero App Window — Three-column editor
+         ============================================================ -->
+    <div class="hero-window anim-fade-up" data-delay="2">
+      <div class="app-window">
+        <div class="app-titlebar">
+          <span class="app-dot app-dot--red"></span>
+          <span class="app-dot app-dot--yellow"></span>
+          <span class="app-dot app-dot--green"></span>
+          <span class="app-titlebar-text">Hallucinated Talles — The Lighthouse Keeper</span>
+          <span class="app-titlebar-spacer"></span>
+          <span class="app-titlebar-btn">&#9661;</span>
+        </div>
+        <div class="app-header">
+          <span class="app-header-back">&larr; Projects</span>
+          <span class="app-header-title">The Lighthouse Keeper</span>
+          <span class="app-header-spacer"></span>
+          <span class="app-header-icon">&#9740;</span>
+          <span class="app-header-icon">&#9881;</span>
+        </div>
+        <div class="app-main">
+          <!-- Left Sidebar -->
+          <div class="app-left-sidebar">
+            <div class="app-left-tabs">
+              <span class="app-left-tab active">Characters</span>
+              <span class="app-left-tab">Events</span>
+              <span class="app-left-tab">World</span>
+            </div>
+            <div class="app-left-list">
+              <div class="app-left-item active">
+                <span class="app-left-item-dot" style="background:#60a5fa"></span>
+                Marcus (Keeper)
+              </div>
+              <div class="app-left-item">
+                <span class="app-left-item-dot" style="background:#a78bfa"></span>
+                Elena (Stranger)
+              </div>
+              <div class="app-left-item">
+                <span class="app-left-item-dot" style="background:#34d399"></span>
+                The Fleet
+              </div>
+              <div class="app-left-item dim">
+                <span class="app-left-item-dot" style="background:#6b7280"></span>
+                + New Character
+              </div>
+            </div>
+          </div>
+          <!-- Center: Chapter Tree + Editor -->
+          <div class="app-center">
+            <div class="app-chapter-tree">
+              <div class="app-chapter expanded">
+                <span class="app-chapter-chevron">&#9662;</span>
+                Act I
+              </div>
+              <div class="app-chapter-section">The Lighthouse</div>
+              <div class="app-chapter-section active">The Stranger Arrives</div>
+              <div class="app-chapter collapsed">
+                <span class="app-chapter-chevron">&#9656;</span>
+                Act II
+              </div>
+              <div class="app-chapter collapsed">
+                <span class="app-chapter-chevron">&#9656;</span>
+                Act III
+              </div>
+            </div>
+            <div class="app-editor-area">
+              <div class="app-editor-toolbar">
+                <span class="app-toolbar-btn"><b>T</b></span>
+                <span class="app-toolbar-btn active"><b>B</b></span>
+                <span class="app-toolbar-btn"><i>I</i></span>
+                <span class="app-toolbar-btn"><u>U</u></span>
+                <span class="app-toolbar-sep"></span>
+                <span class="app-toolbar-btn">H1</span>
+                <span class="app-toolbar-btn">H2</span>
+                <span class="app-toolbar-sep"></span>
+                <span class="app-toolbar-btn">&bull;</span>
+                <span class="app-toolbar-btn">1.</span>
+              </div>
+              <div class="app-editor-canvas">
+                <div class="app-editor-page">
+                  <div class="app-editor-line">The old lighthouse keeper had not spoken</div>
+                  <div class="app-editor-line">to anyone in seventeen years. Not since the</div>
+                  <div class="app-editor-line">night the sea swallowed the fishing fleet</div>
+                  <div class="app-editor-line">and returned only silence.</div>
+                  <div class="app-editor-line">&nbsp;</div>
+                  <div class="app-editor-line">But tonight, a light flickered in the tower &mdash;</div>
+                  <div class="app-editor-line">a single flame where none had burned since</div>
+                  <div class="app-editor-line">the drowning. And someone was climbing the</div>
+                  <div class="app-editor-line"><span class="app-cursor">|</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Right Sidebar: AI Chat -->
+          <div class="app-right-sidebar">
+            <div class="app-chat-header">
+              <span class="app-chat-title">AI Assistant</span>
+              <span class="app-chat-session">Session: Drafting Ch. 2</span>
+            </div>
+            <div class="app-chat-messages">
+              <div class="app-chat-bubble user">
+                Help me describe the storm approaching the lighthouse
+              </div>
+              <div class="app-chat-bubble assistant">
+                The wind had shifted. What began as a whisper through the grass had become a howl that rattled the lantern room glass...
+              </div>
+            </div>
+            <div class="app-chat-input">
+              <span class="app-chat-placeholder">Ask the AI...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       Features — What Hallucinated Talles Gives You
+       ================================================================ -->
+  <section class="features" id="features">
+    <div class="features-header">
+      <p class="section-eyebrow anim-reveal" data-i18n="features-eyebrow">What Hallucinated Talles gives you</p>
+      <h2 class="section-title anim-reveal" data-i18n="features-title">A writing studio<br><em>that gets out of your way.</em></h2>
+    </div>
+    <div class="features-editorial">
+
+      <!-- The Writing Surface -->
+      <div class="feature-story feature-story--warm feature-story--wide anim-reveal">
+        <div class="feature-story-accent"></div>
+        <div class="feature-story-body">
+          <h3 class="feature-story-title" data-i18n="feature-1-title">The Writing Surface</h3>
+          <p class="feature-story-desc" data-i18n="feature-1-desc">
+            A clean, page-based editor that feels like a real manuscript. No clutter, no distractions. 
+            Just your words on a cream page, with formatting that stays out of your way. 
+            Auto-save means you never lose a sentence, and the chapter tree lets you 
+            jump between acts without losing your place.
+          </p>
+        </div>
+      </div>
+
+      <!-- Your AI Writing Partner -->
+      <div class="feature-story feature-story--blue anim-reveal">
+        <div class="feature-story-accent"></div>
+        <div class="feature-story-body">
+          <h3 class="feature-story-title" data-i18n="feature-2-title">Your AI Writing Partner</h3>
+          <p class="feature-story-desc" data-i18n="feature-2-desc">
+            You're deep in Chapter 7 and need to check what you wrote about Elena's childhood in Chapter 2. 
+            Instead of scrolling endlessly, ask your AI — it knows your whole story. 
+            It suggests prose, polishes dialogue, and helps you break through writer's block 
+            without losing your voice.
+          </p>
+        </div>
+      </div>
+
+      <!-- Know Your Cast -->
+      <div class="feature-story feature-story--rose anim-reveal">
+        <div class="feature-story-accent"></div>
+        <div class="feature-story-body">
+          <h3 class="feature-story-title" data-i18n="feature-3-title">Know Your Cast</h3>
+          <p class="feature-story-desc" data-i18n="feature-3-desc">
+            Every character deserves more than a sticky note. Track motivations, flaws, 
+            relationships, and arcs in one place. Build a living world bible with maps, 
+            lore, and magic systems that your AI can reference at any depth.
+          </p>
+        </div>
+      </div>
+
+      <!-- See the Shape of Your Story -->
+      <div class="feature-story feature-story--teal anim-reveal">
+        <div class="feature-story-accent"></div>
+        <div class="feature-story-body">
+          <h3 class="feature-story-title" data-i18n="feature-4-title">See the Shape of Your Story</h3>
+          <p class="feature-story-desc" data-i18n="feature-4-desc">
+            Before you write a single word, map your narrative visually. Drag chapters, 
+            scenes, and beats onto an infinite canvas. See how Act I connects to Act III. 
+            Watch the timeline unfold and make sure every thread pays off.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bring It In, Send It Out -->
+      <div class="feature-story feature-story--purple feature-story--wide anim-reveal">
+        <div class="feature-story-accent"></div>
+        <div class="feature-story-body">
+          <h3 class="feature-story-title" data-i18n="feature-5-title">Bring It In, Send It Out</h3>
+          <p class="feature-story-desc" data-i18n="feature-5-desc">
+            Drop in a PDF, DOCX, or TXT file and watch AI build your world.
+            It detects characters, events, relationships, and chapters — so your manuscript
+            is ready to work with from the moment it lands. When you're done,
+            export a polished manuscript with custom page size, margins, and fonts.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================
+       Deep Dive: AI Writing Partner
+       ================================================================ -->
+  <section class="deep-dive" id="ai-writing">
+    <div class="deep-dive-inner">
+      <div class="deep-dive-text">
+        <p class="section-eyebrow anim-reveal" data-i18n="ai-eyebrow">AI-Powered</p>
+        <h2 class="section-title anim-reveal" data-i18n="ai-title">Meet Your AI<br><em>Writing Partner</em></h2>
+        <p class="deep-dive-desc anim-reveal" data-i18n="ai-desc">
+          Your built-in AI assistant understands your story's full context — characters, plot, tone, and world.
+          It helps you break through writer's block, polish prose, and develop deeper character arcs.
+        </p>
+        <ul class="deep-dive-list anim-reveal">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n="ai-list-1"><strong>Context-aware</strong> of your characters, plot, and world</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n="ai-list-2"><strong>Suggests prose</strong>, dialogue, descriptions, and scene transitions</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n="ai-list-3"><strong>Makes edits</strong> you can accept or reject with one click</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n="ai-list-4"><strong>Sub-agents</strong> handle specialized writing tasks autonomously</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n="ai-list-5"><strong>Works offline</strong> — run models locally on your machine, fully private</span>
+          </li>
+        </ul>
+      </div>
+      <div class="deep-dive-mock anim-reveal">
+        <!-- ============================================================
+             MOCK 2: AI Chat Panel Deep Dive
+             ============================================================ -->
+        <div class="app-window app-window--chat">
+          <div class="app-titlebar">
+            <span class="app-dot app-dot--red"></span>
+            <span class="app-dot app-dot--yellow"></span>
+            <span class="app-dot app-dot--green"></span>
+            <span class="app-titlebar-text">Hallucinated Talles — AI Assistant</span>
+          </div>
+          <!-- Glass chat header -->
+          <div class="chat-panel-header">
+            <span class="chat-panel-title">AI Assistant</span>
+            <span class="chat-panel-session">Character Development</span>
+            <span class="chat-panel-spacer"></span>
+            <span class="chat-panel-btn" title="Settings">&#9881;</span>
+            <span class="chat-panel-btn" title="Close">&times;</span>
+          </div>
+          <div class="chat-panel-body">
+            <!-- System message -->
+            <div class="chat-msg-system">AI is referencing <strong>The Lighthouse Keeper</strong> &middot; Ch. 2</div>
+            <!-- User bubble -->
+            <div class="chat-msg chat-msg--user">
+              <div class="chat-bubble chat-bubble--user">
+                How should I develop Marcus's guilt about the fleet? He needs to feel real, not melodramatic.
+              </div>
+            </div>
+            <!-- Assistant bubble -->
+            <div class="chat-msg chat-msg--assistant">
+              <div class="chat-bubble chat-bubble--assistant">
+                Ground his guilt in ritual, not confession. Let him count the empty berths each morning — twelve spaces where boats should be. Make the reader feel the weight through repetition, not exposition.
+              </div>
+            </div>
+            <!-- Tool call card -->
+            <div class="chat-tool-card">
+              <div class="chat-tool-header">
+                <span class="chat-tool-icon">&#9998;</span>
+                <span class="chat-tool-name">edit_chapter</span>
+                <span class="chat-tool-label">suggested edit &rarr; Ch. 2</span>
+              </div>
+              <div class="chat-tool-body">
+                <div class="chat-diff">
+                  <div class="chat-diff-line chat-diff-line--removed">Marcus walked past the harbor without looking.</div>
+                  <div class="chat-diff-line chat-diff-line--added">He counted the empty berths each morning, the way he always had. Twelve spaces. Twelve boats that never came back.</div>
+                </div>
+              </div>
+            </div>
+            <!-- Pending edit card -->
+            <div class="chat-pending-edit">
+              <div class="chat-pending-badge">PENDING EDIT</div>
+              <div class="chat-pending-preview">
+                <span class="chat-pending-chapter">Ch. 2 &mdash; The Stranger Arrives</span>
+                <p class="chat-pending-snippet">He counted the empty berths each morning, the way he always had. Twelve spaces. Twelve boats that never came back. And each morning, the count felt heavier than the last.</p>
+              </div>
+              <div class="chat-pending-actions">
+                <button class="chat-btn chat-btn--accept">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  Accept
+                </button>
+                <button class="chat-btn chat-btn--reject">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  Reject
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Input area -->
+          <div class="chat-panel-input">
+            <textarea class="chat-textarea" rows="1" placeholder="Ask the AI about your story..."></textarea>
+            <button class="chat-send-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       Deep Dive: Plan Every Beat (reversed layout)
+       ================================================================ -->
+  <section class="deep-dive deep-dive--reversed" id="planner">
+    <div class="planner-section-inner">
+      <div class="deep-dive-text">
+        <p class="section-eyebrow anim-reveal" data-i18n="planner-eyebrow">Visual Planning</p>
+        <h2 class="section-title anim-reveal" data-i18n="planner-title">Plan Every<br><em>Beat.</em></h2>
+        <p class="deep-dive-desc anim-reveal" data-i18n="planner-desc">
+          Map your story visually. Drag chapters, scenes, and beats onto an infinite canvas.
+          See the shape of your narrative before you write a single word.
+        </p>
+        <ul class="deep-dive-list anim-reveal">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n="planner-list-1"><strong>Visual node graph</strong> — chapters, scenes, beats, notes</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n="planner-list-2"><strong>AI auto-layout</strong> — dagre-powered graph organization</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n="planner-list-3"><strong>Edge types</strong> — follows, causes, conflicts, resolves</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n="planner-list-4"><strong>Connected to AI</strong> — generate story content from your plan</span>
+          </li>
+        </ul>
+      </div>
+      <div class="deep-dive-mock anim-reveal">
+        <!-- ============================================================
+             MOCK 3: Story Planner Full View (matches actual PlannerView)
+             ============================================================ -->
+        <div class="planner-mock">
+          <!-- Glass Header (matches PlannerToolbar) -->
+          <div class="planner-mock-header">
+            <div class="planner-mock-header-left">
+              <span class="planner-mock-back">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg>
+              </span>
+              <span class="planner-mock-title">Story Planner</span>
+              <span class="planner-mock-save-dot"></span>
+              <span class="planner-mock-save-text">Saved</span>
+            </div>
+            <div class="planner-mock-header-right">
+              <span class="planner-mock-btn" title="Undo">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16l-4-4m0 0l4-4m-4 4h18"/></svg>
+              </span>
+              <span class="planner-mock-btn" title="Redo">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 16l4-4m0 0l-4-4m4 4H3"/></svg>
+              </span>
+              <span class="planner-mock-sep"></span>
+              <span class="planner-mock-btn planner-mock-btn--gen">&#9889; Generate</span>
+              <span class="planner-mock-btn" title="Auto-layout">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zM14 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"/></svg>
+              </span>
+              <span class="planner-mock-btn">Clear</span>
+              <span class="planner-mock-sep"></span>
+              <span class="planner-mock-btn planner-mock-btn--chat" title="AI Chat">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.068.157 2.148.279 3.238.364.466.037.893.281 1.153.671L12 21l2.652-3.978c.26-.39.687-.634 1.153-.67 1.09-.086 2.17-.208 3.238-.365 1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg>
+              </span>
+              <span class="planner-mock-btn planner-mock-btn--amber" title="Token Usage">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+              </span>
+              <span class="planner-mock-sep"></span>
+              <span class="planner-mock-btn" title="Theme">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+              </span>
+              <span class="planner-mock-btn" title="Settings">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </span>
+            </div>
+          </div>
+          <!-- Body: 3-column layout (palette | canvas | chat) -->
+          <div class="planner-mock-body">
+            <!-- Node Palette (left) -->
+            <div class="planner-mock-palette">
+              <p class="planner-palette-title">Elements</p>
+              <div class="planner-palette-item">
+                <span class="planner-palette-icon" style="background:var(--accent)"></span>
+                Chapter
+              </div>
+              <div class="planner-palette-item">
+                <span class="planner-palette-icon" style="background:var(--green)"></span>
+                Scene
+              </div>
+              <div class="planner-palette-item">
+                <span class="planner-palette-icon" style="background:#f59e0b"></span>
+                Beat
+              </div>
+              <div class="planner-palette-item">
+                <span class="planner-palette-icon" style="background:#fbbf24"></span>
+                Note
+              </div>
+            </div>
+            <!-- Canvas (center) -->
+            <div class="planner-canvas">
+              <!-- Chapter nodes, scene, beat, note + SVG edges (same as before) -->
+              <div class="planner-node planner-node--chapter" style="left:10%;top:8%;">
+                <div class="planner-node-accent planner-node-accent--blue"></div>
+                <div class="planner-node-content">
+                  <span class="planner-node-type planner-node-type--blue">Chapter</span>
+                  <span class="planner-node-title">Act I: The Ordinary World</span>
+                </div>
+                <span class="planner-status-dot planner-status-dot--complete"></span>
+              </div>
+              <div class="planner-node planner-node--chapter" style="left:6%;top:32%;">
+                <div class="planner-node-accent planner-node-accent--blue"></div>
+                <div class="planner-node-content">
+                  <span class="planner-node-type planner-node-type--blue">Chapter</span>
+                  <span class="planner-node-title">Ch 1: The Lighthouse</span>
+                </div>
+                <span class="planner-status-dot planner-status-dot--complete"></span>
+              </div>
+              <div class="planner-node planner-node--scene" style="left:12%;top:56%;">
+                <div class="planner-node-accent planner-node-accent--green"></div>
+                <div class="planner-node-content">
+                  <span class="planner-node-type planner-node-type--green">Scene</span>
+                  <span class="planner-node-title">Marcus's morning ritual</span>
+                </div>
+                <span class="planner-status-dot planner-status-dot--complete"></span>
+              </div>
+              <div class="planner-node planner-node--chapter planner-node--selected" style="left:38%;top:8%;">
+                <div class="planner-node-accent planner-node-accent--blue"></div>
+                <div class="planner-node-content">
+                  <span class="planner-node-type planner-node-type--blue">Chapter</span>
+                  <span class="planner-node-title">Ch 2: The Stranger</span>
+                </div>
+                <span class="planner-status-dot planner-status-dot--progress"></span>
+              </div>
+              <div class="planner-node planner-node--beat" style="left:40%;top:32%;">
+                <div class="planner-node-accent planner-node-accent--amber"></div>
+                <div class="planner-node-content">
+                  <span class="planner-node-type planner-node-type--amber">Beat</span>
+                  <span class="planner-node-title">Elena arrives at the door</span>
+                </div>
+                <span class="planner-status-dot planner-status-dot--progress"></span>
+              </div>
+              <div class="planner-node planner-node--chapter" style="left:38%;top:56%;">
+                <div class="planner-node-accent planner-node-accent--blue"></div>
+                <div class="planner-node-content">
+                  <span class="planner-node-type planner-node-type--blue">Chapter</span>
+                  <span class="planner-node-title">Ch 3: The Harbor</span>
+                </div>
+                <span class="planner-status-dot planner-status-dot--draft"></span>
+              </div>
+              <div class="planner-node planner-node--note" style="left:65%;top:10%;">
+                <div class="planner-fold"></div>
+                <div class="planner-node-content">
+                  <span class="planner-node-title planner-node-title--note">Remember: Elena knows about the fleet</span>
+                </div>
+              </div>
+              <div class="planner-node planner-node--chapter" style="left:65%;top:36%;">
+                <div class="planner-node-accent planner-node-accent--blue"></div>
+                <div class="planner-node-content">
+                  <span class="planner-node-type planner-node-type--blue">Chapter</span>
+                  <span class="planner-node-title">Ch 4: The Storm</span>
+                </div>
+                <span class="planner-status-dot planner-status-dot--draft"></span>
+              </div>
+              <div class="planner-node planner-node--scene" style="left:66%;top:60%;">
+                <div class="planner-node-accent planner-node-accent--green"></div>
+                <div class="planner-node-content">
+                  <span class="planner-node-type planner-node-type--green">Scene</span>
+                  <span class="planner-node-title">The truth beneath the waves</span>
+                </div>
+                <span class="planner-status-dot planner-status-dot--draft"></span>
+              </div>
+              <!-- SVG edges -->
+              <svg class="planner-edges" viewBox="0 0 520 320" preserveAspectRatio="none">
+                <path d="M140,35 C140,70 85,85 85,110" stroke="#6b7280" stroke-width="1.5" fill="none"/>
+                <path d="M85,145 C85,175 105,195 105,220" stroke="#6b7280" stroke-width="1.5" fill="none"/>
+                <path d="M190,35 C240,35 240,38 290,38" stroke="#f97316" stroke-width="2" fill="none"/>
+                <path d="M350,60 C350,90 340,105 340,130" stroke="#f97316" stroke-width="2" fill="none"/>
+                <path d="M350,165 C350,195 350,210 350,230" stroke="#f97316" stroke-width="2" fill="none"/>
+                <path d="M205,35 C400,20 430,20 460,45" stroke="#ef4444" stroke-width="1.5" fill="none" stroke-dasharray="6 4"/>
+              </svg>
+              <!-- Floating Inspector (matches real app: full-height overlay) -->
+              <div class="planner-mock-inspector">
+                <div class="planner-inspector-header">
+                  <div class="planner-inspector-header-top">
+                    <span class="planner-inspector-icon">📖</span>
+                    <span class="planner-inspector-type-badge">Chapter</span>
+                    <span class="planner-inspector-id">a3f2…9b1c</span>
+                  </div>
+                  <div class="planner-inspector-status">
+                    <span class="planner-status-dot planner-status-dot--progress" style="display:inline-block;position:static;width:6px;height:6px"></span>
+                    <span class="planner-inspector-status-label">In Progress</span>
+                  </div>
+                </div>
+                <div class="planner-inspector-body">
+                  <div class="planner-inspector-field">
+                    <label class="planner-inspector-label">Label</label>
+                    <div class="planner-inspector-input">Ch 2: The Stranger</div>
+                  </div>
+                  <div class="planner-inspector-field">
+                    <label class="planner-inspector-label">Description</label>
+                    <div class="planner-inspector-value" style="font-size:0.62rem;color:var(--text-dim);line-height:1.4">Elena arrives at Marcus's door, confronting him about the letter she discovered.</div>
+                  </div>
+                  <div class="planner-inspector-field">
+                    <label class="planner-inspector-label">Status</label>
+                    <div class="planner-inspector-select">
+                      <span>In Progress</span>
+                      <svg width="10" height="10" viewBox="0 0 12 12" fill="none" style="margin-left:auto"><path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </div>
+                  </div>
+                  <div class="planner-inspector-field">
+                    <label class="planner-inspector-label">Characters</label>
+                    <div class="planner-inspector-input">Marcus, Elena</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Resize handle -->
+            <div class="planner-mock-handle">
+              <div class="planner-mock-handle-dots">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <!-- Chat Panel (right) -->
+            <div class="planner-mock-chat">
+              <div class="planner-chat-header">
+                <span class="planner-chat-session">Writing Session</span>
+                <span class="planner-chat-badge">Ch 2</span>
+              </div>
+              <div class="planner-chat-messages">
+                <div class="planner-chat-msg planner-chat-msg--system">AI assistant connected to plan context</div>
+                <div class="planner-chat-msg planner-chat-msg--user">How should I develop Elena's motivation for confronting Marcus?</div>
+                <div class="planner-chat-msg planner-chat-msg--ai">
+                  Based on your plan, Elena discovers the fleet secret in Ch 4. Consider building her motivation through:
+                  <br><br>1. <strong>Foreshadowing</strong> — small clues in Ch 1-2<br>
+                  2. <strong>Personal stake</strong> — her brother served on those ships<br>
+                  3. <strong>Moral tension</strong> — loyalty vs. truth
+                </div>
+                <div class="planner-chat-msg planner-chat-msg--user">Write a scene beat where she finds the letter</div>
+                <div class="planner-chat-msg planner-chat-msg--ai planner-chat-msg--tool">
+                  <span class="planner-chat-tool-label">edit_chapter</span>
+                  <div class="planner-chat-diff">
+                    <span class="planner-chat-diff-del">The morning passed without incident.</span>
+                    <span class="planner-chat-diff-add">The morning passed without incident — or so Marcus believed. In the bottom drawer of the desk, beneath a stack of navigation charts, Elena found the letter. The ink had faded to the color of rust, but the words burned.</span>
+                  </div>
+                  <div class="planner-chat-pending">
+                    <span class="planner-chat-pending-badge">Pending Edit</span>
+                    <span class="planner-chat-pending-btn planner-chat-pending-btn--accept">&#10003; Accept</span>
+                    <span class="planner-chat-pending-btn planner-chat-pending-btn--reject">&#10007; Reject</span>
+                  </div>
+                </div>
+              </div>
+              <div class="planner-chat-input">
+                <span class="planner-chat-textarea">Ask the AI about your plan...</span>
+                <span class="planner-chat-send">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       Deep Dive: Bring Your Manuscript
+       ================================================================ -->
+  <section class="deep-dive" id="import-export">
+    <div class="deep-dive-inner">
+      <div class="deep-dive-text">
+        <p class="section-eyebrow anim-reveal" data-i18n="import-eyebrow">Import &amp; Export</p>
+        <h2 class="section-title anim-reveal" data-i18n="import-title">Bring Your<br><em>Manuscript.</em></h2>
+        <p class="deep-dive-desc anim-reveal" data-i18n="import-desc">
+          Drop in a draft and watch AI build your world. It detects characters, events,
+          relationships, and chapters — so your story is ready to work with immediately.
+          When you're done, export a polished manuscript for your editor or beta readers.
+        </p>
+        <ul class="deep-dive-list anim-reveal">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n="import-list-1"><strong>Multi-format</strong> — PDF, DOCX, ODT, TXT</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n="import-list-2"><strong>Entity extraction</strong> — characters, events, relationships, and chapters</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n="import-list-3"><strong>Manuscript export</strong> with custom page size, margins, and fonts</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n="import-list-4"><strong>Non-destructive</strong> — your original files stay untouched</span>
+          </li>
+        </ul>
+      </div>
+      <div class="deep-dive-mock anim-reveal">
+        <!-- ============================================================
+             MOCK 4: Import Dialog — 2-step wizard (Configure step)
+             ============================================================ -->
+        <div class="import-overlay">
+          <div class="import-modal">
+            <!-- Header with icon -->
+            <div class="import-header">
+              <div class="import-header-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/>
+                </svg>
+              </div>
+              <span class="import-title">Import Book</span>
+              <span class="import-close">&times;</span>
+            </div>
+            <!-- Step indicator: 2 steps -->
+            <div class="import-stepper">
+              <div class="import-step">
+                <div class="import-step-num import-step-num--done">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="import-step-text import-step-text--done">Select File</span>
+              </div>
+              <div class="import-step-line import-step-line--done"></div>
+              <div class="import-step">
+                <div class="import-step-num import-step-num--active">2</div>
+                <span class="import-step-text import-step-text--active">Configure</span>
+              </div>
+            </div>
+            <!-- Content: Configure step -->
+            <div class="import-body">
+              <!-- Book Details card -->
+              <div class="import-card">
+                <h3 class="import-card-heading">Book Details</h3>
+                <!-- File display -->
+                <label class="import-label">File</label>
+                <div class="import-file-row">
+                  <div class="import-file-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/>
+                    </svg>
+                  </div>
+                  <span class="import-file-name">the-lighthouse-keeper.pdf</span>
+                  <span class="import-file-change">Change</span>
+                </div>
+                <!-- Book Name -->
+                <label class="import-label">Book Name</label>
+                <input class="import-input" type="text" value="The Lighthouse Keeper" readonly />
+              </div>
+              <!-- AI Settings card -->
+              <div class="import-card">
+                <h3 class="import-card-heading">AI Settings</h3>
+                <!-- Provider -->
+                <label class="import-label">Provider</label>
+                <div class="import-select">
+                  <span>Local</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <!-- Model + Effort row -->
+                <div class="import-row">
+                  <div class="import-field">
+                    <label class="import-label">Model</label>
+                    <div class="import-select">
+                      <span>llama3.1:8b</span>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                  </div>
+                  <div class="import-field import-field--sm">
+                    <label class="import-label">Effort</label>
+                    <div class="import-select">
+                      <span>Medium</span>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Optional card -->
+              <div class="import-card import-card--muted">
+                <h3 class="import-card-heading import-card-heading--muted">Optional <span class="import-badge">Advanced</span></h3>
+                <!-- Prompt -->
+                <label class="import-label">Prompt <span class="import-label-hint">(optional)</span></label>
+                <textarea class="import-textarea" rows="2" readonly>Focus on character relationships, extract dialogue as events...</textarea>
+                <!-- Page Range -->
+                <label class="import-label">Page Range</label>
+                <div class="import-page-range">
+                  <input class="import-input import-input--num" type="text" value="1" readonly />
+                  <span class="import-page-sep">to</span>
+                  <input class="import-input import-input--num" type="text" value="312" readonly />
+                  <span class="import-page-total">/ 312</span>
+                </div>
+              </div>
+            </div>
+            <!-- Footer -->
+            <div class="import-footer">
+              <button class="import-btn import-btn--ghost">Cancel</button>
+              <button class="import-btn import-btn--primary">Start Import</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       Deep Dive: Track Your AI Usage (reversed layout)
+       ================================================================ -->
+  <section class="deep-dive deep-dive--reversed" id="dashboard">
+    <div class="deep-dive-inner">
+      <div class="deep-dive-text">
+        <p class="section-eyebrow anim-reveal" data-i18n="dash-eyebrow">Analytics</p>
+        <h2 class="section-title anim-reveal" data-i18n="dash-title">Track Your<br><em>AI Usage.</em></h2>
+        <p class="deep-dive-desc anim-reveal" data-i18n="dash-desc">
+          See exactly how your AI writing sessions add up. Monitor tokens, costs, and efficiency
+          across providers and models — so you can optimize your workflow.
+        </p>
+        <ul class="deep-dive-list anim-reveal">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n="dash-list-1"><strong>Real-time tracking</strong> — see token usage as you write</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n="dash-list-2"><strong>Per-session breakdowns</strong> — compare usage across sessions</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n="dash-list-3"><strong>Model comparison</strong> — see which providers you use most</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n="dash-list-4"><strong>Visual dashboards</strong> — charts, KPIs, and summaries</span>
+          </li>
+        </ul>
+      </div>
+      <div class="deep-dive-mock anim-reveal">
+        <!-- ============================================================
+             MOCK 5: Token Usage Dashboard (full-screen overlay style)
+             ============================================================ -->
+        <div class="dash-mock">
+          <!-- Glass Header -->
+          <div class="dash-mock-header">
+            <div class="dash-mock-header-left">
+              <span class="dash-back-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                <span>Back</span>
+              </span>
+              <span class="dash-mock-sep"></span>
+              <span class="dash-mock-title">Token Usage</span>
+            </div>
+            <div class="dash-mock-header-right">
+              <span class="dash-mock-retention-label">Keep</span>
+              <span class="dash-mock-retention-input">90</span>
+              <span class="dash-mock-retention-label">days</span>
+              <span class="dash-mock-retention-save">Save</span>
+            </div>
+          </div>
+          <!-- Scrollable Content -->
+          <div class="dash-mock-content">
+            <!-- Filter Bar -->
+            <div class="dash-filter-bar">
+              <div class="dash-filter-group">
+                <span class="dash-filter-label">From</span>
+                <span class="dash-filter-date">May 15, 2026</span>
+              </div>
+              <div class="dash-filter-group">
+                <span class="dash-filter-label">To</span>
+                <span class="dash-filter-date">Jun 14, 2026</span>
+              </div>
+              <span class="dash-filter-sep"></span>
+              <div class="dash-filter-dropdown">
+                <span>All Models</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="dash-filter-dropdown">
+                <span>All Projects</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <span class="dash-filter-sep"></span>
+              <div class="dash-source-toggle">
+                <span class="dash-source-btn dash-source-btn--active">All</span>
+                <span class="dash-source-btn">Chat</span>
+                <span class="dash-source-btn">Import</span>
+              </div>
+            </div>
+            <!-- KPI Cards -->
+            <div class="dash-kpi-row">
+              <div class="dash-kpi-card">
+                <div class="dash-kpi-bar dash-kpi-bar--blue"></div>
+                <div class="dash-kpi-inner">
+                  <div class="dash-kpi-head">
+                    <span class="dash-kpi-label">Total Tokens</span>
+                    <!-- Tokens icon -->
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:.5"><path d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"/></svg>
+                  </div>
+                  <span class="dash-kpi-value">452,318</span>
+                </div>
+              </div>
+              <div class="dash-kpi-card">
+                <div class="dash-kpi-bar dash-kpi-bar--purple"></div>
+                <div class="dash-kpi-inner">
+                  <div class="dash-kpi-head">
+                    <span class="dash-kpi-label">Avg Tokens / Session</span>
+                    <!-- Bar chart icon -->
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:.5"><path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+                  </div>
+                  <span class="dash-kpi-value">37,693</span>
+                </div>
+              </div>
+              <div class="dash-kpi-card">
+                <div class="dash-kpi-bar dash-kpi-bar--green"></div>
+                <div class="dash-kpi-inner">
+                  <div class="dash-kpi-head">
+                    <span class="dash-kpi-label">Cache Hit Rate</span>
+                    <!-- Lock icon -->
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:.5"><path d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg>
+                  </div>
+                  <span class="dash-kpi-value">34.2%</span>
+                </div>
+              </div>
+              <div class="dash-kpi-card">
+                <div class="dash-kpi-bar dash-kpi-bar--amber"></div>
+                <div class="dash-kpi-inner">
+                  <div class="dash-kpi-head">
+                    <span class="dash-kpi-label">Total Sessions</span>
+                    <!-- Users icon -->
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:.5"><path d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+                  </div>
+                  <span class="dash-kpi-value">12</span>
+                </div>
+              </div>
+            </div>
+            <!-- Charts Row -->
+            <div class="dash-charts-row">
+              <!-- Area Chart -->
+              <div class="dash-chart-card">
+                <p class="dash-chart-title">Usage Over Time</p>
+                <div class="dash-area-chart">
+                  <svg viewBox="0 0 300 110" preserveAspectRatio="none" class="dash-area-svg">
+                    <!-- Grid lines -->
+                    <line x1="30" y1="10" x2="300" y2="10" stroke="var(--border)" stroke-width="0.5" stroke-dasharray="3 3" stroke-opacity="0.4"/>
+                    <line x1="30" y1="35" x2="300" y2="35" stroke="var(--border)" stroke-width="0.5" stroke-dasharray="3 3" stroke-opacity="0.4"/>
+                    <line x1="30" y1="60" x2="300" y2="60" stroke="var(--border)" stroke-width="0.5" stroke-dasharray="3 3" stroke-opacity="0.4"/>
+                    <line x1="30" y1="85" x2="300" y2="85" stroke="var(--border)" stroke-width="0.5" stroke-dasharray="3 3" stroke-opacity="0.4"/>
+                    <!-- Y axis labels -->
+                    <text x="4" y="14" fill="var(--text-dim)" font-size="7" text-anchor="start">50K</text>
+                    <text x="4" y="39" fill="var(--text-dim)" font-size="7" text-anchor="start">35K</text>
+                    <text x="4" y="64" fill="var(--text-dim)" font-size="7" text-anchor="start">20K</text>
+                    <text x="4" y="89" fill="var(--text-dim)" font-size="7" text-anchor="start">5K</text>
+                    <!-- Area fill -->
+                    <defs>
+                      <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="rgba(59,130,246,0.35)"/>
+                        <stop offset="100%" stop-color="rgba(59,130,246,0.05)"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M30,80 C55,75 70,70 90,60 C110,50 125,55 145,35 C165,18 180,15 200,25 C220,35 235,20 255,15 C270,12 285,22 300,30 L300,100 L30,100 Z" fill="url(#areaGrad)"/>
+                    <!-- Line -->
+                    <path d="M30,80 C55,75 70,70 90,60 C110,50 125,55 145,35 C165,18 180,15 200,25 C220,35 235,20 255,15 C270,12 285,22 300,30" fill="none" stroke="#3b82f6" stroke-width="2"/>
+                    <!-- X axis labels -->
+                    <text x="30" y="105" fill="var(--text-dim)" font-size="7" text-anchor="middle">May 15</text>
+                    <text x="85" y="105" fill="var(--text-dim)" font-size="7" text-anchor="middle">May 22</text>
+                    <text x="140" y="105" fill="var(--text-dim)" font-size="7" text-anchor="middle">May 29</text>
+                    <text x="195" y="105" fill="var(--text-dim)" font-size="7" text-anchor="middle">Jun 5</text>
+                    <text x="260" y="105" fill="var(--text-dim)" font-size="7" text-anchor="middle">Jun 12</text>
+                  </svg>
+                </div>
+              </div>
+              <!-- Donut Chart -->
+              <div class="dash-chart-card">
+                <p class="dash-chart-title">Model Distribution</p>
+                <div class="dash-donut-wrap">
+                  <div class="dash-donut">
+                    <svg viewBox="0 0 100 100" class="dash-donut-svg">
+                      <!-- Local 45% -->
+                      <circle cx="50" cy="50" r="36" fill="none" stroke="#3b82f6" stroke-width="14" stroke-dasharray="101.8 224.2" stroke-dashoffset="0" transform="rotate(-90 50 50)"/>
+                      <!-- OpenAI 27% -->
+                      <circle cx="50" cy="50" r="36" fill="none" stroke="#8b5cf6" stroke-width="14" stroke-dasharray="61.2 224.2" stroke-dashoffset="-101.8" transform="rotate(-90 50 50)"/>
+                      <!-- DeepSeek 16% -->
+                      <circle cx="50" cy="50" r="36" fill="none" stroke="#10b981" stroke-width="14" stroke-dasharray="35.9 224.2" stroke-dashoffset="-163.0" transform="rotate(-90 50 50)"/>
+                      <!-- Other 12% -->
+                      <circle cx="50" cy="50" r="36" fill="none" stroke="#f59e0b" stroke-width="14" stroke-dasharray="26.9 224.2" stroke-dashoffset="-198.9" transform="rotate(-90 50 50)"/>
+                    </svg>
+                  </div>
+                  <div class="dash-donut-legend">
+                    <div class="dash-legend-item"><span class="dash-legend-dot" style="background:#3b82f6"></span><span class="dash-legend-name">local-model</span><span class="dash-legend-val">203,543</span></div>
+                    <div class="dash-legend-item"><span class="dash-legend-dot" style="background:#8b5cf6"></span><span class="dash-legend-name">cloud-provider</span><span class="dash-legend-val">122,126</span></div>
+                    <div class="dash-legend-item"><span class="dash-legend-dot" style="background:#10b981"></span><span class="dash-legend-name">deepseek-chat</span><span class="dash-legend-val">72,371</span></div>
+                    <div class="dash-legend-item"><span class="dash-legend-dot" style="background:#f59e0b"></span><span class="dash-legend-name">Other</span><span class="dash-legend-val">54,278</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       Built for Writers, Built to Last
+       ================================================================ -->
+  <section class="stack-section" id="stack">
+    <div class="stack-inner">
+      <div class="stack-header">
+        <p class="section-eyebrow anim-reveal" data-i18n="stack-eyebrow">Built for writers, built to last</p>
+        <h2 class="section-title anim-reveal" data-i18n="stack-title">Your stories, always available.<br><em>No accounts. No subscriptions.</em></h2>
+      </div>
+      <div class="stack-grid">
+        <div class="stack-card anim-reveal">
+          <div class="stack-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <h3 class="stack-card-title" data-i18n="stack-card-1-title">Your Data Stays Yours</h3>
+          <p class="stack-card-desc" data-i18n="stack-card-1-desc">No telemetry, no accounts, no data leaving your machine. Connect to your own locally hosted models and keep everything private.</p>
+        </div>
+        <div class="stack-card anim-reveal">
+          <div class="stack-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4m-8.66-15l3.46 2m10.4 6l3.46 2M1 12h4m14 0h4m-3.34-8.66l-2 3.46M6.34 17.66l-2 3.46"/>
+            </svg>
+          </div>
+          <h3 class="stack-card-title" data-i18n="stack-card-2-title">Cloud Providers Welcome</h3>
+          <p class="stack-card-desc" data-i18n="stack-card-2-desc">Prefer cloud AI? Connect OpenAI, Google, or others in seconds. Switch providers anytime without changing your workflow.</p>
+        </div>
+        <div class="stack-card anim-reveal">
+          <div class="stack-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3 class="stack-card-title" data-i18n="stack-card-3-title">Shape the AI's Voice</h3>
+          <p class="stack-card-desc" data-i18n="stack-card-3-desc">Define custom personas and writing instructions that shape how the AI thinks, writes, and suggests for your specific project and genre.</p>
+        </div>
+        <div class="stack-card anim-reveal">
+          <div class="stack-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </div>
+          <h3 class="stack-card-title" data-i18n="stack-card-4-title">Free. Open Source. Forever.</h3>
+          <p class="stack-card-desc" data-i18n="stack-card-4-desc">No accounts, no subscriptions, no BS. Inspect the code, contribute features, fork it for your needs. Always free.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       Download CTA
+       ================================================================ -->
+  <section class="cta" id="cta">
+    <div class="cta-inner anim-reveal">
+      <p class="cta-eyebrow" data-i18n="cta-eyebrow">Your story begins here</p>
+      <h2 class="cta-title" data-i18n="cta-title">Start Writing.</h2>
+      <p class="cta-desc" data-i18n="cta-desc">
+        Download Hallucinated Talles for free. Write offline, use any AI you want, 
+        and keep your work on your machine — where it belongs.
+      </p>
+      <div class="cta-actions">
+        <a href="https://github.com/atretador/story_teller/releases" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px;">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          <span data-i18n="cta-download-btn">Download for Free</span>
+        </a>
+        <a href="https://github.com/atretador/story_teller" class="btn btn-ghost btn-lg" target="_blank" rel="noopener">
+          <span data-i18n="cta-star-btn">Star on GitHub</span>
+        </a>
+      </div>
+      <p class="cta-note" data-i18n="cta-note">Windows &middot; macOS &middot; Linux &middot; Always free</p>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       Footer
+       ================================================================ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="nav-logo-icon">&#9733;</span>
+        <span data-i18n="footer-brand">Hallucinated Talles</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/atretador/story_teller" target="_blank" rel="noopener" data-i18n="footer-link-github">GitHub</a>
+        <a href="https://github.com/atretador/story_teller/releases" target="_blank" rel="noopener" data-i18n="footer-link-releases">Releases</a>
+        <a href="https://github.com/atretador/story_teller/issues" target="_blank" rel="noopener" data-i18n="footer-link-bug">Report a Bug</a>
+        <a href="https://github.com/atretador/story_teller/blob/main/LICENSE" target="_blank" rel="noopener" data-i18n="footer-link-license">License</a>
+      </div>
+      <p class="footer-copy" data-i18n="footer-copy">&copy; 2026 Hallucinated Talles &middot; Free &amp; Open Source</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,696 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+/* Class-based dark variant: `.dark` on <html> == dark mode (default). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================================
+   SHADCN/UI THEME TOKENS — map semantic tokens to our custom
+   --theme-* variables so shadcn/ui components render correctly.
+   ============================================================ */
+@theme inline {
+  --color-background: var(--theme-bg);
+  --color-foreground: var(--theme-text);
+  --color-muted: var(--theme-surface);
+  --color-muted-foreground: var(--theme-text-dim);
+  --color-accent: var(--theme-surface-2);
+  --color-accent-foreground: var(--theme-text);
+  --color-border: var(--theme-border);
+  --color-ring: #3b82f6;
+  --color-input: var(--theme-border);
+  --color-popover: var(--theme-surface);
+  --color-popover-foreground: var(--theme-text);
+  --color-primary: #3b82f6;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: var(--theme-surface);
+  --color-secondary-foreground: var(--theme-text);
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-card: var(--theme-surface);
+  --color-card-foreground: var(--theme-text);
+  --color-sidebar: var(--theme-surface);
+  --color-sidebar-foreground: var(--theme-text);
+  --radius: 0.625rem;
+}
+
+/* ============================================================
+   THEME TOKENS — dark is the default; light overrides under
+   `:where(html:not(.dark))`. The Tailwind gray-palette CSS
+   variables are inverted in light mode so every existing
+   `bg-gray-*` / `text-gray-*` utility auto-flips without
+   touching each component.
+   ============================================================ */
+:root {
+  /* page / surfaces */
+  --theme-bg: #030712;        /* gray-950 */
+  --theme-surface: #111827;   /* gray-900 */
+  --theme-surface-2: #1f2937; /* gray-800 */
+  --theme-border: #374151;    /* gray-700 */
+  --theme-text: #f3f4f6;      /* gray-100 */
+  --theme-text-dim: #9ca3af;  /* gray-400 */
+  --theme-text-mute: #6b7280; /* gray-500 */
+
+  /* glass header */
+  --glass-bg: rgba(17, 24, 39, 0.72);
+  --glass-border: rgba(55, 65, 81, 0.45);
+  --glass-highlight: rgba(255, 255, 255, 0.05);
+  --glass-bg-unsupported: rgba(17, 24, 39, 0.95);
+
+  /* connectors / scrollbar */
+  --connector: rgba(75, 85, 99, 0.4);
+  --connector-strong: rgba(75, 85, 99, 0.5);
+  --connector-hover: rgba(107, 114, 128, 0.7);
+
+  /* card */
+  --card-border: rgba(75, 85, 99, 0.35);
+  --card-glow: rgba(96, 165, 250, 0.25);
+  --card-glow-lg: rgba(96, 165, 250, 0.35);
+
+  /* shadows */
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.18);
+  --shadow-2: 0 4px 12px rgba(0, 0, 0, 0.40), 0 2px 6px rgba(0, 0, 0, 0.20);
+  --shadow-3: 0 8px 30px rgba(0, 0, 0, 0.48), 0 4px 10px rgba(0, 0, 0, 0.22);
+}
+
+html:not(.dark) {
+  /* page / surfaces — light */
+  --theme-bg: #f9fafb;          /* gray-50 */
+  --theme-surface: #ffffff;     /* white */
+  --theme-surface-2: #f3f4f6;   /* gray-100 */
+  --theme-border: #e5e7eb;      /* gray-200 */
+  --theme-text: #1f2937;        /* gray-800 */
+  --theme-text-dim: #4b5563;    /* gray-600 */
+  --theme-text-mute: #6b7280;   /* gray-500 */
+
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(229, 231, 235, 0.65);
+  --glass-highlight: rgba(0, 0, 0, 0.03);
+  --glass-bg-unsupported: rgba(255, 255, 255, 0.95);
+
+  --connector: rgba(107, 114, 128, 0.28);
+  --connector-strong: rgba(107, 114, 128, 0.35);
+  --connector-hover: rgba(75, 85, 99, 0.5);
+
+  --card-border: rgba(209, 213, 219, 0.7);
+  --card-glow: rgba(59, 130, 246, 0.22);
+  --card-glow-lg: rgba(59, 130, 246, 0.30);
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-2: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.05);
+  --shadow-3: 0 8px 30px rgba(0, 0, 0, 0.12), 0 4px 10px rgba(0, 0, 0, 0.06);
+
+  /* Invert the gray palette so existing utilities flip:
+     bg-gray-900 -> light, text-gray-100 -> dark, etc. */
+  --color-gray-50:  #030712;
+  --color-gray-100: #111827;
+  --color-gray-200: #1f2937;
+  --color-gray-300: #374151;
+  --color-gray-400: #4b5563;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #9ca3af;
+  --color-gray-700: #d1d5db;
+  --color-gray-800: #e5e7eb;
+  --color-gray-900: #f3f4f6;
+  --color-gray-950: #f9fafb;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ---------- Animation timing tokens ---------- */
+:root {
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   1. GLASS UTILITY (theme-aware)
+   ============================================================ */
+@utility glass {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: inset 0 1px 0 var(--glass-highlight);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .glass {
+    background-color: var(--glass-bg-unsupported);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* ============================================================
+   2. CARD ELEVATION (theme-aware)
+   ============================================================ */
+@utility card-elevated {
+  background-color: var(--color-gray-800);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-1);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card-elevated:hover {
+  box-shadow: var(--shadow-2);
+  border-color: var(--card-glow);
+}
+
+@utility card-elevated-lg {
+  background-color: var(--color-gray-800);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-2);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card-elevated-lg:hover {
+  box-shadow: var(--shadow-3);
+  border-color: var(--card-glow-lg);
+}
+
+/* ============================================================
+   3. FOCUS RING
+   ============================================================ */
+@utility focus-ring {
+  &:focus-visible {
+    outline: 2px solid var(--color-blue-500);
+    outline-offset: 2px;
+  }
+}
+
+/* ============================================================
+   4. TIMELINE VISUAL LANGUAGE (theme-aware connector)
+   ============================================================ */
+.timeline-connector {
+  height: 1px;
+  background-color: var(--connector);
+}
+
+.timeline-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border-width: 2px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.timeline-dot:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-blue-500);
+}
+
+.timeline-dot[data-type="major"] {
+  width: 14px;
+  height: 14px;
+  border-color: rgba(239, 68, 68, 0.55);
+  background-color: var(--color-gray-800);
+}
+.timeline-dot[data-type="major"]::after {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: var(--color-red-400);
+}
+
+.timeline-dot[data-type="minor"] {
+  width: 10px;
+  height: 10px;
+  border-color: rgba(59, 130, 246, 0.55);
+  background-color: var(--color-gray-800);
+}
+.timeline-dot[data-type="minor"]::after {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: var(--color-blue-400);
+}
+
+.timeline-dot[data-type="background"] {
+  width: 8px;
+  height: 8px;
+  border-color: rgba(107, 114, 128, 0.45);
+  background-color: var(--color-gray-800);
+}
+.timeline-dot[data-type="background"]::after {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 9999px;
+  background-color: var(--color-gray-400);
+}
+
+.timeline-card {
+  background-color: var(--color-gray-800);
+  border: 1px solid var(--card-border);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  text-align: left;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.timeline-card[data-type="major"] {
+  box-shadow: var(--shadow-2);
+  border-left: 2px solid var(--color-red-500);
+}
+.timeline-card[data-type="major"]:hover {
+  box-shadow: var(--shadow-3);
+  border-color: rgba(239, 68, 68, 0.35);
+}
+
+.timeline-card[data-type="minor"] {
+  box-shadow: var(--shadow-1);
+  border-left: 2px solid var(--color-blue-500);
+}
+.timeline-card[data-type="minor"]:hover {
+  box-shadow: var(--shadow-2);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.timeline-card[data-type="background"] {
+  box-shadow: var(--shadow-1);
+  opacity: 0.8;
+}
+.timeline-card[data-type="background"]:hover {
+  box-shadow: var(--shadow-2);
+  opacity: 0.95;
+  border-color: rgba(156, 163, 175, 0.3);
+}
+
+.timeline-scroll-container {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+}
+
+/* ============================================================
+   5. CUSTOM SCROLLBAR (theme-aware, thin)
+   ============================================================ */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--connector-strong) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--connector-strong);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--connector-hover);
+}
+
+/* ============================================================
+   6. KEYFRAME ANIMATIONS (mirror Motion variants for any
+      Tailwind `animate-*` usage; Motion components animate
+      via inline styles and do not need these)
+   ============================================================ */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in-down {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes bounce-dot {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40% { transform: translateY(-4px); opacity: 1; }
+}
+
+@utility animate-fade-in { animation: fade-in var(--duration-normal) var(--ease-smooth) both; }
+@utility animate-fade-in-up { animation: fade-in-up var(--duration-normal) var(--ease-smooth) both; }
+@utility animate-fade-in-down { animation: fade-in-down var(--duration-normal) var(--ease-smooth) both; }
+@utility animate-scale-in { animation: scale-in var(--duration-normal) var(--ease-spring) both; }
+@utility animate-slide-in-right { animation: slide-in-right var(--duration-normal) var(--ease-smooth) both; }
+@utility animate-slide-in-left { animation: slide-in-left var(--duration-normal) var(--ease-smooth) both; }
+@utility animate-bounce-dot { animation: bounce-dot 1.2s infinite ease-in-out; }
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes done-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.08); }
+}
+
+/* ============================================================
+   9. AI TWEAK HIGHLIGHT — breathing aura on selected text
+   ============================================================ */
+@keyframes ai-highlight-breathe {
+  0%, 100% {
+    background-color: rgba(59, 130, 246, 0.12);
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.15);
+  }
+  50% {
+    background-color: rgba(59, 130, 246, 0.30);
+    box-shadow: 0 0 16px rgba(59, 130, 246, 0.35);
+  }
+}
+
+.ai-tweak-highlight {
+  animation: ai-highlight-breathe 2s ease-in-out infinite;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+/* ============================================================
+   10. PAGE AI-EDIT BREATHING AURA
+   ============================================================ */
+@keyframes page-ai-edit-breathe {
+  0%, 100% {
+    box-shadow:
+      0 0 18px rgba(59, 130, 246, 0.35),
+      0 0 36px rgba(59, 130, 246, 0.20),
+      0 0 60px rgba(59, 130, 246, 0.10),
+      0 8px 32px rgba(0, 0, 0, 0.45),
+      0 2px 8px rgba(0, 0, 0, 0.2);
+    outline-color: rgba(59, 130, 246, 0.45);
+  }
+  50% {
+    box-shadow:
+      0 0 24px rgba(59, 130, 246, 0.55),
+      0 0 48px rgba(59, 130, 246, 0.35),
+      0 0 80px rgba(59, 130, 246, 0.18),
+      0 8px 32px rgba(0, 0, 0, 0.45),
+      0 2px 8px rgba(0, 0, 0, 0.2);
+    outline-color: rgba(59, 130, 246, 0.70);
+  }
+}
+
+.page-ai-editing {
+  animation: page-ai-edit-breathe 2.5s ease-in-out infinite;
+  outline: 3px solid rgba(59, 130, 246, 0.45);
+  outline-offset: 1px;
+  transition: margin-right 0.3s ease;
+}
+
+/* ============================================================
+   7. REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .glass,
+  .card-elevated,
+  .card-elevated-lg,
+  .card-elevated:hover,
+  .card-elevated-lg:hover,
+  .timeline-dot,
+  .timeline-card,
+  .page-ai-editing,
+  .ai-tweak-highlight {
+    animation: none;
+    transition: none;
+  }
+  .timeline-card[data-type="background"] {
+    opacity: 0.8;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   8. PAGE RENDER — used in CommitDiffModal for rendered HTML
+   ============================================================ */
+.page-render {
+  font-family: 'Crimson Text', Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--theme-text);
+}
+
+.page-render h1 {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1.75em;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0.8em 0 0.4em;
+  color: var(--theme-text);
+}
+
+.page-render h2 {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1.35em;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0.7em 0 0.35em;
+  color: var(--theme-text);
+}
+
+.page-render h3 {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1.1em;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0.6em 0 0.3em;
+  color: var(--theme-text);
+}
+
+.page-render p {
+  margin: 0.5em 0;
+}
+
+.page-render strong {
+  font-weight: 700;
+}
+
+.page-render em {
+  font-style: italic;
+}
+
+.page-render ul,
+.page-render ol {
+  margin: 0.5em 0;
+  padding-left: 1.5em;
+}
+
+.page-render ul {
+  list-style-type: disc;
+}
+
+.page-render ol {
+  list-style-type: decimal;
+}
+
+.page-render li {
+  margin: 0.2em 0;
+}
+
+.page-render blockquote {
+  margin: 0.6em 0;
+  padding: 0.25em 1em;
+  border-left: 3px solid var(--theme-border);
+  color: var(--theme-text-dim);
+  font-style: italic;
+}
+
+.page-render hr {
+  border: none;
+  border-top: 1px solid var(--theme-border);
+  margin: 1em 0;
+}
+
+.page-render img {
+  max-width: 100%;
+  border-radius: 0.375rem;
+}
+
+.page-render code {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.85em;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.15em 0.35em;
+  border-radius: 0.25rem;
+}
+
+.page-render pre {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+  padding: 0.75em 1em;
+  overflow-x: auto;
+  margin: 0.6em 0;
+}
+
+.page-render pre code {
+  background: none;
+  padding: 0;
+}
+
+/* ============================================================
+    11. A4 PAGE STYLING — Spike Editor (pagination)
+   ============================================================ */
+.doc-canvas {
+  background-color: oklch(0.93 0.006 250);
+}
+
+.doc-toolbar-placeholder {
+  height: 49px;
+  flex: 0 0 auto;
+}
+
+.doc-page {
+  position: relative;
+  width: 210mm;
+  min-height: 297mm;
+  padding: 25.4mm 25.4mm;
+  background-color: white;
+  color: #111;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px oklch(0.88 0.008 250),
+    0 10px 30px -12px rgba(15, 23, 42, 0.18);
+}
+
+/* Subtle divider between virtual pages */
+.doc-page-break {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-top: 1px dashed oklch(0.88 0.01 250);
+  pointer-events: none;
+}
+
+.doc-page .ProseMirror {
+  outline: none;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 11pt;
+  line-height: 1.5;
+  color: #111;
+}
+
+.doc-page .ProseMirror h1 { font-size: 2em; font-weight: 700; line-height: 1.2; }
+.doc-page .ProseMirror h2 { font-size: 1.5em; font-weight: 700; line-height: 1.25; }
+.doc-page .ProseMirror h3 { font-size: 1.25em; font-weight: 600; line-height: 1.3; }
+.doc-page .ProseMirror h4 { font-size: 1.1em; font-weight: 600; }
+.doc-page .ProseMirror p { margin: 0; }
+.doc-page .ProseMirror ul,
+.doc-page .ProseMirror ol { padding-left: 1.5rem; }
+.doc-page .ProseMirror ul { list-style: disc; }
+.doc-page .ProseMirror ol { list-style: decimal; }
+.doc-page .ProseMirror blockquote {
+  border-left: 3px solid oklch(0.8 0.02 250);
+  padding-left: 1rem;
+  color: oklch(0.4 0.02 250);
+  font-style: italic;
+}
+.doc-page .ProseMirror code {
+  background: oklch(0.95 0.01 250);
+  padding: 0.15em 0.35em;
+  border-radius: 3px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+}
+.doc-page .ProseMirror pre {
+  background: oklch(0.15 0.02 250);
+  color: oklch(0.95 0.01 250);
+  padding: 0.85rem 1rem;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+  overflow-x: auto;
+}
+.doc-page .ProseMirror pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+.doc-page .ProseMirror a {
+  color: oklch(0.5 0.2 250);
+  text-decoration: underline;
+}
+.doc-page .ProseMirror img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+.doc-page .ProseMirror hr {
+  border: none;
+  border-top: 1px solid oklch(0.85 0.01 250);
+  margin: 1.5em 0;
+}
+.doc-page .ProseMirror mark {
+  background: #fef08a;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+.doc-page .ProseMirror p.is-editor-empty:first-child::before {
+  color: oklch(0.6 0.02 250);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+.doc-page .ProseMirror ul[data-type="taskList"] {
+  list-style: none;
+  padding-left: 0.25rem;
+}
+.doc-page .ProseMirror ul[data-type="taskList"] li {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+.doc-page .ProseMirror ul[data-type="taskList"] li > label {
+  margin-top: 0.25em;
+}
+
+@media print {
+  .doc-toolbar { display: none !important; }
+  .doc-canvas { background: white !important; padding: 0 !important; overflow: visible !important; }
+  .doc-page { box-shadow: none !important; margin: 0 !important; }
+  .doc-page-break { display: none !important; }
+}

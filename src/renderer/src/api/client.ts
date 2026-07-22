@@ -1,0 +1,23 @@
+// Barrel re-export — preserves all existing imports from '../../api/client' / '../api/client'
+export { api, getStandardHeaders, getApiBase } from './base';
+export { projectApi } from './projectApi';
+export { bookApi, setActiveBookId } from './bookApi';
+export type { BookListItem } from './bookApi';
+export { bookSettingsApi } from './bookSettingsApi';
+export { sessionApi } from './sessionApi';
+export { settingsApi } from './settingsApi';
+export type { AppStatusResponse, ProjectsDirResponse } from './settingsApi';
+export { aiApi } from './aiApi';
+export type { AiStatusResponse } from './aiApi';
+export { projectAiSelectionsApi } from './projectAiSelectionsApi';
+export { skillsApi } from './skillsApi';
+export { mcpApi } from './mcpApi';
+export { getImportState, getPageCount, startImport } from './importApi';
+export type { ImportParams, ImportEvent } from './importApi';
+export { tokenUsageApi } from './tokenUsageApi';
+export type { TokenUsageRecordsResponse, TokenUsageSummaryResponse, TokenUsageModelsResponse } from './tokenUsageApi';
+export { subAgentApi } from './subAgentApi';
+export { effortConfigApi } from './effortConfigApi';
+export { planApi } from './planApi';
+export { chapterImageApi } from './chapterImageApi';
+export { coverApi } from './coverApi';
