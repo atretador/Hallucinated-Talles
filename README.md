@@ -163,7 +163,7 @@ Output will be in the `release/` directory:
 ## Project Structure
 
 ```
-story_teller/
+Hallucinated-Talles/
 ├── src/
 │   ├── main/                    # Electron main process
 │   │   ├── index.ts             # App entry, window creation, IPC
